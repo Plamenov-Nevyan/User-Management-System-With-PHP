@@ -6,13 +6,15 @@ class User{
     private $email;
     private $phone;
     private $role;
+    private $isForbiddenToUpdate;
 
-    public function __construct($id, $username, $email, $phone, $role){
+    public function __construct($id, $username, $email, $phone, $role, $isForbiddenToUpdate){
         $this->id = $id;
         $this->username = $username;
         $this->email = $email;
         $this->phone = $phone;
         $this->role = $role;
+        $this->isForbiddenToUpdate = $isForbiddenToUpdate;
     }
 
     public function getId(){
@@ -48,5 +50,11 @@ class User{
     }
     public function setRole($role){
         $this->role = $role;
+    }
+    public function getIsForbiddenToUpdate(){
+        return $this->isForbiddenToUpdate;
+    }
+    public function setIsForbiddenToUpdate($isForbiddenToUpdate){
+        $this->isForbiddenToUpdate = $isForbiddenToUpdate;
     }
 }
