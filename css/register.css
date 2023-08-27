@@ -1,0 +1,78 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main form {
+  display: flex;
+  flex-direction: column;
+  min-height: 60%;
+  min-width: 45%;
+  gap: 1em;
+  background-color: #eee;
+  padding: 1em;
+  justify-items: center;
+  border-radius: 0.7em;
+}
+main form h1 {
+  text-align: center;
+}
+main form fieldset {
+  display: flex;
+  gap: 0.6em;
+  align-items: center;
+  border: none;
+  flex-wrap: wrap;
+}
+main form fieldset label {
+  flex: 1 1 20%;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+main form fieldset input {
+  flex: 1 1 100%;
+  font-size: 1.3rem;
+  padding: 0.4em 1em;
+  border: none;
+  outline: none;
+  border-radius: 0.6em;
+  transition: ease-in-out 200ms;
+}
+main form fieldset input:focus {
+  background-color: beige;
+}
+main form fieldset input:hover {
+  background-color: rgb(226, 226, 206);
+}
+main form fieldset span.error-message {
+  flex: 1 1 100%;
+  text-align: center;
+  color: red;
+}
+main form button {
+  max-width: 40%;
+  margin-left: auto;
+  padding: 0.5em 1em;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 0.6em;
+  background-color: cornflowerblue;
+  cursor: pointer;
+  transition: ease-in-out 200ms;
+  color: azure;
+  font-weight: bold;
+}
+main form button:hover {
+  background-color: azure;
+  color: cornflowerblue;
+}/*# sourceMappingURL=register.css.map */

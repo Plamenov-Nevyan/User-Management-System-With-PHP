@@ -1,0 +1,31 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+p {
+  font-size: 1.7rem;
+}
+
+button {
+  font-size: 1.4rem;
+}
+
+h3 {
+  font-size: 1.9rem;
+}
+
+label {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+input {
+  font-size: 1.4rem;
+}/*# sourceMappingURL=typography.css.map */
