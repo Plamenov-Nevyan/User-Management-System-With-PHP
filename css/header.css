@@ -1,0 +1,41 @@
+.site-header {
+  min-width: 100%;
+  margin-bottom: auto;
+  height: 10vh;
+  min-height: 5vh;
+  display: flex;
+}
+.site-header .logo {
+  flex: 0 1 50%;
+  max-height: 100%;
+  background-color: coral;
+}
+.site-header .logo img {
+  width: 20%;
+  height: 100%;
+}
+.site-header .site-nav {
+  flex: 1 1 50%;
+  background-color: cornflowerblue;
+}
+.site-header .site-nav .nav-list {
+  list-style-type: none;
+  display: flex;
+  gap: 2em;
+  align-items: center;
+  max-height: 100%;
+  height: 100%;
+  justify-content: flex-end;
+  padding-right: 1em;
+}
+.site-header .site-nav .nav-list li {
+  color: azure;
+  cursor: pointer;
+  padding: 0.4em 1em;
+  border-radius: 0.5em;
+  transition: ease-in-out 200ms;
+}
+.site-header .site-nav .nav-list li:hover, .site-header .site-nav .nav-list li.active {
+  background-color: azure;
+  color: black;
+}/*# sourceMappingURL=header.css.map */

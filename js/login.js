@@ -1,6 +1,8 @@
 import { validateLoginForm } from "./validators.js"
 import { createSession } from "./session.js"
 import { createPasswordSvg } from "./svgCreator.js"
+let loginLink = document.getElementById('login-link');
+loginLink.classList.add('active')
 let loginForm = document.querySelector('#login-form')
 let loginInputs = Array.from(document.querySelectorAll('.login-input'))
 let showPasswordSvg = document.getElementById('show-password')

@@ -1,6 +1,8 @@
 import { validateRegisterForm } from "./validators.js"
 import { createSession } from "./session.js"
 import { createPasswordSvg } from "./svgCreator.js"
+let registerLink = document.getElementById('register-link');
+registerLink.classList.add('active')
 let registerForm = document.querySelector('#register-form')
 let registerInputs = Array.from(document.querySelectorAll('.register-input'))
 let showPasswordSvg = document.getElementById('show-password')

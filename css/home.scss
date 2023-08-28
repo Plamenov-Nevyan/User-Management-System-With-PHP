@@ -6,7 +6,7 @@
 main {
     background-color: darkcyan;
     position: relative;
-    height: 80vh;
+    height: 90vh;
     img {
         max-width: 60%;
         width: 60%;
@@ -17,10 +17,16 @@ main {
         top: 0;
         clip-path: polygon(0 0, 100% 0%, 80% 100%, 0 100%);
     }
-    h1 {
+    h1.heading1 {
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 25%;
+        right: 5%;
+        color: azure;
+    }
+    h2.heading2 {
+        position: absolute;
+        top: 50%;
+        right: 2%;
         color: azure;
     }
 }
