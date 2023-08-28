@@ -19,7 +19,29 @@ class Register extends Database {
         $this->password = $password;
     }
 
+    private function createOwnerFromFirstUser(){
+     try {
+        $pdo = $this->connect();
+        $query = "SELECT COUNT(*) FROM users;";
+        $statement = $pdo->prepare($query);
+        $statement->execute();
+        $count = $statement->fetchColumn();
+        if($count === false){
+            throw new Exception('Failed to retrieve users count.');
+        }
+        else if($count === 0){
+            $this->userRole = 'owner';
+        }
+        $pdo = null;    
+        $statement=null;
+     }catch(Exception $err){
+         $pdo = null;    
+         $statement=null;
+         throw $err;
+     };
+    }
     private function insertUser(){
+      try {
         $pdo = $this->connect();
         // SQL query for inserting a newly registered user in the database, values will be passed during it's execution
         $query = "INSERT INTO users (username, email, phone, userRole, isForbiddenToUpdate, pwd) VALUES (?, ?, ?, ?, ?, ?);";  
@@ -40,6 +62,11 @@ class Register extends Database {
         // Manually closing the database connection, to free up resources as early as possible (since it closes automatically anyway)
         $pdo = null;    
         $statement=null;
+      }catch(Exception $error){
+        $pdo = null;    
+        $statement=null;
+        throw $error;
+      };
     }
     private function checkForErrors(){
         if(!isset($this->username) || !isset($this->email) || !isset($this->phone) || !isset($this->password)){
@@ -47,7 +74,12 @@ class Register extends Database {
         };
     }
     public function registerUser(){
+       try {
         $this->checkForErrors();
+        $this->createOwnerFromFirstUser();
         $this->insertUser();
+       }catch(Exception $error){
+        throw $error;
+       };
     }
 }

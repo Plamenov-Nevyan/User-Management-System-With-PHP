@@ -19,9 +19,26 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             if(isset($_SESSION["userId"])){
                 header("Content-Type: application/json");
                 echo json_encode(array($_SESSION["userId"]));
+                exit;
             };
         }catch(Exception $error){
             echo 'Error: ' . $error->getMessage();
         }
-    };
+    }else if($action === 'login'){
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        require_once "../Classes/Database.php";
+        require_once "../Classes/Login.php";
+        $loginInfo = new Login($email, $password);
+        try{
+            $loginInfo->loginUser();
+            if(isset($_SESSION["userId"])){
+                header("Content-Type: application/json");
+                echo json_encode(array($_SESSION["userId"]));
+                exit;
+            };
+        }catch(Exception $error){
+            echo 'Error: ' . $error->getMessage();
+        };
+    }
 };
