@@ -5,15 +5,15 @@ class User{
     private $username;
     private $email;
     private $phone;
-    private $role;
+    private $userRole;
     private $isForbiddenToUpdate;
 
-    public function __construct($id, $username, $email, $phone, $role, $isForbiddenToUpdate){
+    public function __construct($id, $username, $email, $phone, $userRole, $isForbiddenToUpdate){
         $this->id = $id;
         $this->username = $username;
         $this->email = $email;
         $this->phone = $phone;
-        $this->role = $role;
+        $this->userRole = $userRole;
         $this->isForbiddenToUpdate = $isForbiddenToUpdate;
     }
 
@@ -46,10 +46,10 @@ class User{
     }
 
     public function getRole(){
-        return $this->role;
+        return $this->userRole;
     }
-    public function setRole($role){
-        $this->role = $role;
+    public function setRole($userRole){
+        $this->userRole = $userRole;
     }
     public function getIsForbiddenToUpdate(){
         return $this->isForbiddenToUpdate;

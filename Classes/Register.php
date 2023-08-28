@@ -6,6 +6,8 @@ class Register {
     private $email;
     private $phone;
     private $password;
+    private $userRole = 'user';
+    private $isForbiddenToUpdate = false;
     private $hash_options = [
         'cost' => 12
     ]; 
@@ -20,7 +22,7 @@ class Register {
     private function insertUser(){
         $pdo = $this->connect();
         // SQL query for inserting a newly registered user in the database, values will be passed during it's execution
-        $query = "INSERT INTO users (username, email, phone, pwd) VALUES (?, ?, ?, ?);";  
+        $query = "INSERT INTO users (username, email, phone, userRole, isForbiddenToUpdate, pwd) VALUES (?, ?, ?, ?, ?, ?);";  
 
         //Creating SQL unnamed prepared statement using the query for registration
         $statement = $pdo->prepare($query);
@@ -29,7 +31,7 @@ class Register {
         $hashedPassword = password_hash($this->password, PASSWORD_BCRYPT, $this->hash_options);
 
         // executing the prepared statement and passing the received form data as values 
-        $statement->execute([$this->username,$this->email,$this->phone,$hashedPassword]);
+        $statement->execute([$this->username, $this->email, $this->phone, $this->userRole, $this->isForbiddenToUpdate, $hashedPassword]);
 
         // Getting the newly registered user id, to be sent to the profile page through session
         $userId=$pdo->lastInsertId();
