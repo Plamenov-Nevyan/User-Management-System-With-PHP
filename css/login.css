@@ -35,7 +35,7 @@ main form fieldset {
   flex-wrap: wrap;
 }
 main form fieldset label {
-  flex: 1 1 20%;
+  flex: 1 1 100%;
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -58,6 +58,15 @@ main form fieldset span.error-message {
   flex: 1 1 100%;
   text-align: center;
   color: red;
+}
+main form fieldset svg {
+  max-width: 2em;
+  max-height: 2em;
+  cursor: pointer;
+  fill: cadetblue;
+}
+main form #password-fieldset input {
+  flex: 1 1 80%;
 }
 main form button {
   max-width: 40%;

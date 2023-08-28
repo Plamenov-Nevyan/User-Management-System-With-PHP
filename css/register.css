@@ -59,6 +59,15 @@ main form fieldset span.error-message {
   text-align: center;
   color: red;
 }
+main form fieldset svg {
+  max-width: 2em;
+  max-height: 2em;
+  cursor: pointer;
+  fill: cadetblue;
+}
+main form #password-fieldset input {
+  flex: 1 1 80%;
+}
 main form button {
   max-width: 40%;
   margin-left: auto;
