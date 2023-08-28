@@ -43,7 +43,9 @@ function sendData({username, email, phone, password}){
         createSession({userId: data[0]})
         window.location.href = "dashboard.html"
     })
-    .catch(err => alert(err))
+    .catch(err => {
+        alert(err)
+    })
 }
 
 function visualizeErrors(errors){

@@ -1,7 +1,7 @@
 <?php
 
 class Database {
- private  $connectionSpecs = "mysql:host=localhost;dbname=USM"; //specifying the database driver, host and table 
+ private  $connectionSpecs = "mysql:host=localhost;dbname=ums"; //specifying the database driver, host and table 
  private $dbusername = "root"; 
  private $dbpassword = "";
 

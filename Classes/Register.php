@@ -1,7 +1,7 @@
 <?php 
 require_once "../includes/config.php";
 
-class Register {
+class Register extends Database {
     private $username;
     private $email;
     private $phone;
@@ -42,7 +42,7 @@ class Register {
         $statement=null;
     }
     private function checkForErrors(){
-        if(isset($this->username) && isset($this->email) && isset($this->phone) && isset($this->password)){
+        if(!isset($this->username) || !isset($this->email) || !isset($this->phone) || !isset($this->password)){
             throw new Exception('Please fill all the required fields');
         };
     }

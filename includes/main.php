@@ -4,7 +4,7 @@ require_once "../includes/config.php";
 if($_SERVER["REQUEST_METHOD"] === "POST"){
     $action = $_POST["action"];
 
-    if(action === 'register'){
+    if($action === 'register'){
         $username = $_POST["username"];
         $email = $_POST["email"];
         $phone = $_POST["phone"];
