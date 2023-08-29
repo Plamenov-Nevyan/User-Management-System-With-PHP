@@ -57,7 +57,15 @@ class Register extends Database {
 
         // Getting the newly registered user id, to be sent to the profile page through session
         $userId=$pdo->lastInsertId();
+        $roleQuery ="SELECT userRole FROM users WHERE id = :userId";
+        $roleStatement = $pdo->prepare($roleQuery);
+        $roleStatement->bindParam("userId", $userId);
+        $roleStatement->execute();
+        $result = $roleStatement->fetch(PDO::FETCH_ASSOC);
+        $userRole = $result["userRole"];
+
         $_SESSION['userId'] = $userId;
+        $_SESSION['userRole'] = $userRole;
 
         // Manually closing the database connection, to free up resources as early as possible (since it closes automatically anyway)
         $pdo = null;    

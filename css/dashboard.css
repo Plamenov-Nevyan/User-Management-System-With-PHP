@@ -1,0 +1,54 @@
+main .heading {
+  padding: 1em;
+  background-color: bisque;
+}
+main .heading h2 {
+  text-align: center;
+}
+main .users-list-wrapper {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+  max-width: 50vw;
+  margin: 0 auto;
+  background: whitesmoke;
+  overflow-y: scroll;
+  padding: 0.5em 1em;
+}
+main .users-list-wrapper .card {
+  flex: 0 1 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5em 0.5em;
+  border-radius: 0.7em;
+  background-color: darkgoldenrod;
+}
+main .users-list-wrapper .card .card-top {
+  text-align: center;
+}
+main .users-list-wrapper .card .card-top img {
+  max-width: 30%;
+  height: auto;
+}
+main .users-list-wrapper .card .card-bottom {
+  display: flex;
+  width: 75%;
+  padding: 0.3em 0.5em;
+  justify-content: center;
+  gap: 0.5em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: ease-in-out 200ms;
+}
+main .users-list-wrapper .card .card-bottom svg {
+  max-width: 1.5em;
+  max-height: 1.5em;
+}
+main .users-list-wrapper .card .card-bottom:hover {
+  background-color: white;
+}
+main .users-list-wrapper .card .user-info {
+  flex-direction: column;
+  gap: 0.7em;
+}/*# sourceMappingURL=dashboard.css.map */

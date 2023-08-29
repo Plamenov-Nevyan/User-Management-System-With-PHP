@@ -3,6 +3,15 @@ export function createSession(userData){
 }
 
 export function getSessionItem(itemKey){
-    let data = JSON.parse(sessionStorage.getItem('session'))[itemKey]
-    return data
+    let session = sessionStorage.getItem('session')
+    if(session){
+     let data = JSON.parse(session)[itemKey]
+     return data
+    }else {
+        return null
+    }
+}
+
+export function destroySession(){
+    sessionStorage.clear()
 }

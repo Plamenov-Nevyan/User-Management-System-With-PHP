@@ -1,8 +1,6 @@
 import { validateRegisterForm } from "./validators.js"
 import { createSession } from "./session.js"
 import { createPasswordSvg } from "./svgCreator.js"
-let registerLink = document.getElementById('register-link');
-registerLink.classList.add('active')
 let registerForm = document.querySelector('#register-form')
 let registerInputs = Array.from(document.querySelectorAll('.register-input'))
 let showPasswordSvg = document.getElementById('show-password')
@@ -56,7 +54,7 @@ function sendData({username, email, phone, password}){
     .then(resp => resp.json())        // send the data for processing, empty the form and redirect to profile if response is ok
     .then(data => {
         if(typeof data !== 'string' ){
-            createSession({userId: data[0]})
+            createSession({userId: data[0], userRole: data[1]})
             window.location.href = "dashboard.html"
         }
     })
