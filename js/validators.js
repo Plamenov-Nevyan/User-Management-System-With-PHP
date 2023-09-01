@@ -28,6 +28,20 @@ export function validateLoginForm(loginInputs){
     }
 }
 
+export function validateChangeForm(changeInputs){
+    let errors = checkForEmptyInputs(changeInputs) // check for empty inputs
+    // if there are no empty inputs, check their validity
+    if(Object.values(errors).every(val => val === null)){
+       errors = {...inputsValidator(changeInputs, errors)}
+    }
+    //visualize errors through every error span corresponding to its input sibling
+    if(Object.values(errors).some(val => val !== null)){
+        return errors
+    }else{
+        return false
+    }
+}
+
 function checkForEmptyInputs(inputs){
     let errors = {}
     Array.from(inputs).forEach(input => {  // llok for empty inputs and attach errors to errors object if there are any 

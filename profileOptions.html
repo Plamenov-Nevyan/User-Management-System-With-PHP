@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/profileOptions.css">
+    <link rel="stylesheet" href="css/typography.css">
+    <script src="js/profileUpdate.js" type="module" defer></script>
+    <title>Profile Options</title>
+  </head>
+  <body>
+    <div class="options-wrapper">
+      <div class="lefthand-menu">
+        <ul>
+          <li>
+            <button class="option-btn" id="change-username">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                <!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <path
+                  d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c10 0 18.8-4.9 24.2-12.5l-99.2-99.2c-14.9-14.9-23.3-35.1-23.3-56.1v-33c-15.9-4.7-32.8-7.2-50.3-7.2H178.3zM384 224c-17.7 0-32 14.3-32 32v82.7c0 17 6.7 33.3 18.7 45.3L478.1 491.3c18.7 18.7 49.1 18.7 67.9 0l73.4-73.4c18.7-18.7 18.7-49.1 0-67.9L512 242.7c-12-12-28.3-18.7-45.3-18.7H384zm24 80a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"
+                />
+              </svg>
+              Change username
+            </button>
+          </li>
+          <li>
+            <button class="option-btn" id="change-email">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <path
+                  d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+                />
+              </svg>
+              Change email
+            </button>
+          </li>
+          <li>
+            <button class="option-btn" id="change-phone">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <path
+                  d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"
+                />
+              </svg>
+              Change phone number
+            </button>
+          </li>
+          <li>
+            <button class="option-btn" id="change-password">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <path
+                  d="M336 352c97.2 0 176-78.8 176-176S433.2 0 336 0S160 78.8 160 176c0 18.7 2.9 36.8 8.3 53.7L7 391c-4.5 4.5-7 10.6-7 17v80c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24V448h40c13.3 0 24-10.7 24-24V384h40c6.4 0 12.5-2.5 17-7l33.3-33.3c16.9 5.4 35 8.3 53.7 8.3zM376 96a40 40 0 1 1 0 80 40 40 0 1 1 0-80z"
+                />
+              </svg>
+              Change password
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="forms">
+        <a id="back-to-dashboard" href="dashboard.html">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+          Back to dashboard
+        </a>
+        <h3 id="suggestion-heading">Select a option on the lefthand menu to update.</h3>
+        <form class="change-form" id="change-username-form">
+          <fieldset>
+            <label for="current-username">Your current username:</label>
+            <input
+              class="change-input"
+              type="text"
+              name="current-username"
+              id="current-username"
+            />
+            <span class="error-message" id="username-current-error"></span>
+          </fieldset>
+          <fieldset>
+            <label for="new-username">New username:</label>
+            <input
+              class="change-input"
+              type="text"
+              name="new-username"
+              id="new-username"
+            />
+            <span class="error-message" id="username-new-error"></span>
+          </fieldset>
+          <button>Save Changes</button>
+        </form>
+        <form class="change-form" id="change-email-form">
+          <fieldset>
+            <label for="current-email">Your current email:</label>
+            <input
+              class="change-input"
+              type="text"
+              name="current-email"
+              id="current-email"
+            />
+            <span class="error-message" id="email-current-error"></span>
+          </fieldset>
+          <fieldset>
+            <label for="new-email">New email:</label>
+            <input
+              class="change-input"
+              type="text"
+              name="new-email"
+              id="new-email"
+            />
+            <span class="error-message" id="email-new-error"></span>
+          </fieldset>
+          <button>Save Changes</button>
+        </form>
+        <form class="change-form" id="change-phone-form">
+          <fieldset>
+            <label for="current-phone">Your current phone number:</label>
+            <input
+              class="change-input"
+              type="number"
+              name="current-phone"
+              id="current-phone"
+            />
+            <span class="error-message" id="phone-current-error"></span>
+          </fieldset>
+          <fieldset>
+            <label for="new-phone">New phone number:</label>
+            <input
+              class="change-input"
+              type="number"
+              name="new-phone"
+              id="new-phone"
+            />
+            <span class="error-message" id="phone-new-error"></span>
+          </fieldset>
+          <button>Save Changes</button>
+        </form>
+        <form class="change-form" id="change-password-form">
+          <fieldset>
+            <label for="current-password">Your current password:</label>
+            <input
+              class="change-input"
+              type="password"
+              name="current-password"
+              id="current-password"
+            />
+            <span class="error-message" id="password-current-error"></span>
+          </fieldset>
+          <fieldset>
+            <label for="new-password">New password:</label>
+            <input
+              class="change-input"
+              type="password"
+              name="new-password"
+              id="new-password"
+            />
+            <span class="error-message" id="password-new-error"></span>
+          </fieldset>
+          <button>Save Changes</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

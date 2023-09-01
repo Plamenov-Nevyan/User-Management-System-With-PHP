@@ -7,10 +7,7 @@ class Register extends Database {
     private $phone;
     private $password;
     private $userRole = 'user';
-    private $isForbiddenToUpdate = false;
-    private $hash_options = [
-        'cost' => 12
-    ]; 
+    private $isForbiddenToUpdate = false; 
 
     public function __construct($username, $email, $phone, $password){
         $this->username = $username;

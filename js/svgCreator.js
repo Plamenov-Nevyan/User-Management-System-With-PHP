@@ -29,3 +29,13 @@ export function viewUserInfoSvg(viewBox, path, hideOrShow){
     iconSvg.appendChild(iconPath)
     return iconSvg
 }
+
+export function userOptionsSvg(viewBox, path, userId){
+    const iconSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
+    const iconPath = document.createElementNS("http://www.w3.org/2000/svg", "path")
+    iconSvg.setAttribute('viewBox', viewBox)
+    iconSvg.setAttribute('id', userId)
+    iconPath.setAttribute('d', path)
+    iconSvg.appendChild(iconPath)
+    return iconSvg
+}

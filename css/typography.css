@@ -37,9 +37,13 @@ h5 {
   font-size: 1.5rem;
 }
 
-label {
+label, a {
   font-size: 1.3rem;
   font-weight: bold;
+}
+
+a {
+  text-decoration: none;
 }
 
 input {

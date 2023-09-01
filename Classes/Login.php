@@ -4,9 +4,6 @@ require_once "../includes/config.php";
 class Login extends Database {
     private $email;
     private $password;
-    private $hash_options = [
-        'cost' => 12
-    ]; 
 
     public function __construct($email,$password){
         $this->email = $email;

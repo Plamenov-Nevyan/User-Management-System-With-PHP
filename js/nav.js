@@ -100,10 +100,16 @@ function createLinks(isUserLoggedIn){
             if(i === 0){
                 liItem.setAttribute('id', 'dashboard-link')
                 liItem.textContent = 'Dashboard'
+                liItem.addEventListener('click', () => {
+                    window.location.href = 'dashboard.html'
+                })
                 liItem.classList.add('active')
             }else if(i === 1){
                 liItem.setAttribute('id', 'prof-options-link')
                 liItem.textContent = 'Profile Options'
+                liItem.addEventListener('click', () => {
+                    window.location.href = 'profileOptions.html'
+                })
             }else{
                 liItem.setAttribute('id', 'logout-link')
                 liItem.textContent = 'Logout'

@@ -4,6 +4,9 @@ class Database {
  private  $connectionSpecs = "mysql:host=localhost;dbname=ums"; //specifying the database driver, host and table 
  private $dbusername = "root"; 
  private $dbpassword = "";
+ protected $hash_options = [
+    'cost' => 12
+];
 
  protected function connect(){
     try {

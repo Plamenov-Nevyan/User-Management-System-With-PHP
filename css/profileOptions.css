@@ -1,0 +1,115 @@
+.options-wrapper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.options-wrapper .lefthand-menu {
+  min-height: 57%;
+  flex: 0 1 15%;
+  padding: 1em;
+  background-color: bisque;
+  border-radius: 0.6em;
+}
+.options-wrapper .lefthand-menu ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.options-wrapper .lefthand-menu ul li {
+  padding: 0.4em 1em;
+}
+.options-wrapper .lefthand-menu ul li button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  border: 2px solid cornflowerblue;
+  outline: none;
+  border-radius: 0.8em;
+  background: azure;
+  color: rgb(85, 126, 203);
+  transition: ease-in-out 200ms;
+}
+.options-wrapper .lefthand-menu ul li button svg {
+  max-width: 2em;
+  max-height: 2em;
+  fill: rgb(85, 126, 203);
+}
+.options-wrapper .lefthand-menu ul li button:hover {
+  background-color: cornflowerblue;
+  color: azure;
+}
+.options-wrapper .lefthand-menu ul li button:hover svg {
+  fill: azure;
+}
+.options-wrapper .forms {
+  min-height: 57%;
+  flex: 0 1 25%;
+  padding: 1em;
+  border-radius: 0.6em;
+  background-color: bisque;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.options-wrapper .forms #back-to-dashboard {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.options-wrapper .forms #back-to-dashboard svg {
+  max-width: 1em;
+  max-height: 1em;
+}
+.options-wrapper .forms #back-to-dashboard:hover {
+  text-decoration: underline;
+}
+.options-wrapper .forms h3 {
+  color: gray;
+}
+.options-wrapper .forms form {
+  display: none;
+  flex-direction: column;
+  gap: 0.7em;
+}
+.options-wrapper .forms form fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+  border: none;
+}
+.options-wrapper .forms form fieldset input {
+  padding: 0.4em 1em;
+  border: none;
+  border-radius: 0.4em;
+  outline: none;
+}
+.options-wrapper .forms form fieldset input:hover, .options-wrapper .forms form fieldset input:focus {
+  background-color: beige;
+}
+.options-wrapper .forms form fieldset span.error-message {
+  flex: 1 1 100%;
+  text-align: center;
+  color: red;
+}
+.options-wrapper .forms form button {
+  max-width: 50%;
+  padding: 0.5em 1em;
+  border-radius: 0.6em;
+  border: none;
+  background: aliceblue;
+  color: cornflowerblue;
+  font-weight: bold;
+  cursor: pointer;
+  transition: ease-in-out 200ms;
+}
+.options-wrapper .forms form button:hover {
+  background-color: cornflowerblue;
+  color: azure;
+}/*# sourceMappingURL=profileOptions.css.map */
