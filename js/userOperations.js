@@ -1,4 +1,4 @@
-import { getSessionItem } from "./session.js"
+import { getSessionItem} from "./session.js"
 
 let userSignedUpRole = getSessionItem('userRole')
 let userSignedUpId = getSessionItem('userId')
@@ -52,7 +52,7 @@ function generateUserInfoTemplate(userInfo){
 
 function generateActionsTemplate(userAccessed){
     let buttonsDiv = document.createElement('div')
-    if(userSignedUpRole === ' moderator'){
+    if(userSignedUpRole === 'moderator'){
         if(userAccessed.isForbiddenToUpdate === 0){
             let banButton = document.createElement('button')
             banButton.setAttribute('id', 'ban-btn')
@@ -81,16 +81,18 @@ function generateActionsTemplate(userAccessed){
             buttonsDiv.append(removeBanButton)
         }
 
-        let makeModeratorBtn = document.createElement('button')
-        makeModeratorBtn.setAttribute('id', 'make-moderator-btn')
-        makeModeratorBtn.textContent = 'Make user a moderator'
-        buttonsDiv.append(makeModeratorBtn)
-
        if(userAccessed.userRole === 'moderator'){
             let demoteBtn = document.createElement('button')
             demoteBtn.setAttribute('id', 'demote-btn')
             demoteBtn.textContent = 'Demote into regular user'
+            demoteBtn.addEventListener('click', () => demoteToRegularUser(userAccessed.id))
             buttonsDiv.append(demoteBtn)
+       }else {
+            let makeModeratorBtn = document.createElement('button')
+            makeModeratorBtn.setAttribute('id', 'make-moderator-btn')
+            makeModeratorBtn.textContent = 'Make user a moderator'
+            makeModeratorBtn.addEventListener('click', () => makeUserModerator(userAccessed.id))
+            buttonsDiv.append(makeModeratorBtn)
        }
 
         if(userAccessed.userRole !== 'moderator'){
@@ -114,22 +116,25 @@ function generateActionsTemplate(userAccessed){
             buttonsDiv.append(removeBanButton)
         }
 
-        let makeModeratorBtn = document.createElement('button')
-        makeModeratorBtn.setAttribute('id', 'make-moderator-btn')
-        makeModeratorBtn.textContent = 'Make user a moderator'
-        buttonsDiv.append(makeModeratorBtn)
-
-        let makeAdminBtn = document.createElement('button')
-        makeAdminBtn.setAttribute('id', 'make-admin-btn')
-        makeAdminBtn.textContent = 'Make user a admin'
-        buttonsDiv.append(makeAdminBtn)
-
         if(userAccessed.userRole === 'moderator' || userAccessed.userRole === 'admin'){
             let demoteBtn = document.createElement('button')
             demoteBtn.setAttribute('id', 'demote-btn')
             demoteBtn.textContent = 'Demote into regular user'
+            demoteBtn.addEventListener('click', () => demoteToRegularUser(userAccessed.id))
             buttonsDiv.append(demoteBtn)
-        }
+       }else {
+            let makeModeratorBtn = document.createElement('button')
+            makeModeratorBtn.setAttribute('id', 'make-moderator-btn')
+            makeModeratorBtn.textContent = 'Make user a moderator'
+            makeModeratorBtn.addEventListener('click', () => makeUserModerator(userAccessed.id))
+            buttonsDiv.append(makeModeratorBtn)
+
+            let makeAdminBtn = document.createElement('button')
+            makeAdminBtn.setAttribute('id', 'make-admin-btn')
+            makeAdminBtn.textContent = 'Make user a admin'
+            makeAdminBtn.addEventListener('click', () => makeUserAdmin(userAccessed.id))
+            buttonsDiv.append(makeAdminBtn)
+       }
 
         let deleteBtn = document.createElement('button')
         deleteBtn.setAttribute('id', 'delete-btn')
@@ -161,6 +166,53 @@ function removeBanFromUpdating(userId){
     formData.append('isForbiddenToUpdate', 0)
     formData.append('userId', userId)
     formData.append('action', 'removeBanFromUpdating')
+    fetch('includes/main.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(resp => resp.text())
+    .then(message => {
+        alert(message)
+        window.location.href = 'userOperations.html'
+    })
+    .catch(error => alert('Error: ' + error))
+}
+
+function makeUserModerator(userId){
+    let formData = new FormData()
+    formData.append('userId', userId)
+    formData.append('action', 'makeModerator')
+    fetch('includes/main.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(resp => resp.text())
+    .then(message => {
+        alert(message)
+        window.location.href = 'userOperations.html'
+    })
+    .catch(error => alert('Error: ' + error))
+}
+function makeUserAdmin(userId){
+    let formData = new FormData()
+    formData.append('userId', userId)
+    formData.append('action', 'makeAdmin')
+    fetch('includes/main.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(resp => resp.text())
+    .then(message => {
+        alert(message)
+        window.location.href = 'userOperations.html'
+    })
+    .catch(error => alert('Error: ' + error))
+}
+
+function demoteToRegularUser(userId){
+    let formData = new FormData()
+    formData.append('userId', userId)
+    formData.append('action', 'demoteToRegularUser')
     fetch('includes/main.php', {
         method: 'POST',
         body: formData

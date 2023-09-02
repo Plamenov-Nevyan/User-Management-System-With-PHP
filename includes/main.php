@@ -140,6 +140,45 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             echo $error->getMessage();
             exit;
         }
+    }else if($action === "makeModerator"){
+        $userId = $_POST["userId"];
+        require_once "../Classes/Database.php";
+        require_once "../Classes/UserManagement.php";
+        $userOps = new UserManagement();
+        try{
+            $userOps->makeUserModerator($userId);
+            echo 'User was successfully promoted to moderator role !';
+            exit;
+        }catch(Exception $error){
+            echo $error->getMessage();
+            exit;
+        }
+    }else if($action === "makeAdmin"){
+        $userId = $_POST["userId"];
+        require_once "../Classes/Database.php";
+        require_once "../Classes/UserManagement.php";
+        $userOps = new UserManagement();
+        try{
+            $userOps->makeUserAdmin($userId);
+            echo 'User was successfully promoted to admin role !';
+            exit;
+        }catch(Exception $error){
+            echo $error->getMessage();
+            exit;
+        }
+    }else if($action === "demoteToRegularUser"){
+        $userId = $_POST["userId"];
+        require_once "../Classes/Database.php";
+        require_once "../Classes/UserManagement.php";
+        $userOps = new UserManagement();
+        try{
+            $userOps->demoteToRegularUser($userId);
+            echo 'User was successfully demoted to regular role !';
+            exit;
+        }catch(Exception $error){
+            echo $error->getMessage();
+            exit;
+        }
     }
 }else if($_SERVER["REQUEST_METHOD"] === "GET"){
     if($_GET["get"] === "getUsers"){

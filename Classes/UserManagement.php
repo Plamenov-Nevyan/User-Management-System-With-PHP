@@ -225,6 +225,56 @@ class UserManagement extends Database {
         $pdo = null;    
         $statement=null;
     }
+    public function makeUserModerator($userId){
+        try{
+           $this->buildAndExecMakeModeratorQuery($userId);
+        }catch(Exception $error){
+            throw $error;
+        }
+    }
+    private function buildAndExecMakeModeratorQuery($userId){
+        $pdo = $this->connect();
+        $makeModeratorQuery = "UPDATE users SET userRole = 'moderator' WHERE id = :userId";
+        $makeModeratorStatement = $pdo->prepare($makeModeratorQuery);
+        $makeModeratorStatement->bindParam('userId', $userId);
+        $makeModeratorStatement->execute();
+        $pdo = null;    
+        $statement=null;
+    }
+
+    public function makeUserAdmin($userId){
+        try{
+           $this->buildAndExecMakeAdminQuery($userId);
+        }catch(Exception $error){
+            throw $error;
+        }
+    }
+    private function buildAndExecMakeAdminQuery($userId){
+        $pdo = $this->connect();
+        $makeAdminQuery = "UPDATE users SET userRole = 'admin' WHERE id = :userId";
+        $makeAdminStatement = $pdo->prepare($makeAdminQuery);
+        $makeAdminStatement->bindParam('userId', $userId);
+        $makeAdminStatement->execute();
+        $pdo = null;    
+        $statement=null;
+    }
+
+    public function demoteToRegularUser($userId){
+        try{
+           $this->buildAndExecDemoteQuery($userId);
+        }catch(Exception $error){
+            throw $error;
+        }
+    }
+    private function buildAndExecDemoteQuery($userId){
+        $pdo = $this->connect();
+        $demoteQuery = "UPDATE users SET userRole = 'user' WHERE id = :userId";
+        $demoteStatement = $pdo->prepare($demoteQuery);
+        $demoteStatement->bindParam('userId', $userId);
+        $demoteStatement->execute();
+        $pdo = null;    
+        $statement=null;
+    }
 
     public function checkIfUserIsBanned($userId){
         try{

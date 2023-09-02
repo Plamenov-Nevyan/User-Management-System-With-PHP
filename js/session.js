@@ -15,3 +15,12 @@ export function getSessionItem(itemKey){
 export function destroySession(){
     sessionStorage.clear()
 }
+
+export function updateSessionItem(itemKey, newData){
+    let session = sessionStorage.getItem('session')
+    if(session){
+     localStorage.setItem('session', JSON.stringify({...session, [itemKey]: newData}))
+    }else {
+        return null
+    }
+}
