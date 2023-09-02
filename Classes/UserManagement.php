@@ -38,6 +38,22 @@ class UserManagement extends Database {
         }
     }
 
+    public function getUser($userId){
+        try{
+            $pdo = $this->connect();
+            $query = "SELECT id, username, email, phone, userRole, isForbiddenToUpdate, created_at FROM users WHERE id = :userId";
+            $statement = $pdo->prepare($query);
+            $statement->bindParam('userId', $userId);
+            $statement->execute();
+            $user = $statement->fetch(PDO::FETCH_ASSOC);
+            $pdo = null;
+            $statement = null;
+            return $user;
+        }catch(Exception $error){
+            throw $error;
+        }
+    }
+
     public function updateUser($action, $currentData, $newData, $userId){
        try {
         $user = $this->selectUserForUpdate($action, $currentData, $userId);
@@ -176,5 +192,59 @@ class UserManagement extends Database {
         }catch(Exception $error){
             throw $error;
         }
+    }
+    public function banUserFromUpdating($userId){
+        try{
+           $this->buildAndExecBanQuery($userId);
+        }catch(Exception $error){
+            throw $error;
+        }
+    }
+    private function buildAndExecBanQuery($userId){
+        $pdo = $this->connect();
+        $banQuery = "UPDATE users SET isForbiddenToUpdate = 1 WHERE id = :userId";
+        $banStatement = $pdo->prepare($banQuery);
+        $banStatement->bindParam('userId', $userId);
+        $banStatement->execute();
+        $pdo = null;    
+        $statement=null;
+    }
+    public function removeBanFromUpdating($userId){
+        try{
+           $this->buildAndExecRemoveBanQuery($userId);
+        }catch(Exception $error){
+            throw $error;
+        }
+    }
+    private function buildAndExecRemoveBanQuery($userId){
+        $pdo = $this->connect();
+        $removeBanQuery = "UPDATE users SET isForbiddenToUpdate = 0 WHERE id = :userId";
+        $removeBanStatement = $pdo->prepare($removeBanQuery);
+        $removeBanStatement->bindParam('userId', $userId);
+        $removeBanStatement->execute();
+        $pdo = null;    
+        $statement=null;
+    }
+
+    public function checkIfUserIsBanned($userId){
+        try{
+            $isBanned = $this->buildAndExecIsUserBannedCheckQuery($userId);
+            return $isBanned;
+            exit;
+        }catch(Exception $error){
+            throw $error;
+        }
+    }
+
+    private function buildAndExecIsUserBannedCheckQuery($userId){
+        $pdo = $this->connect();
+        $selectUserQuery = "SELECT isForbiddenToUpdate FROM users WHERE id = :userId";
+        $selectStatement = $pdo->prepare($selectUserQuery);
+        $selectStatement->bindParam('userId', $userId);
+        $selectStatement->execute();
+        $user = $selectStatement->fetch(PDO::FETCH_ASSOC);
+        return $user["isForbiddenToUpdate"];
+        $pdo = null;    
+        $statement=null;
     }
 } 

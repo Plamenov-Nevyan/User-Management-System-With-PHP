@@ -1,0 +1,36 @@
+.operations-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.operations-wrapper .action-menu {
+  flex: 0 1 33%;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+}
+.operations-wrapper .action-menu div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.operations-wrapper .user-accessed-info {
+  flex: 0 1 33%;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.operations-wrapper .user-accessed-info div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  flex-direction: column;
+}/*# sourceMappingURL=userOperations.css.map */

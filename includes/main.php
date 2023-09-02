@@ -114,9 +114,36 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             print_r('Error: ' . $error->getMessage());
             exit;
         }
-    };
+    }else if($action === "banFromUpdating"){
+        $userId = $_POST["userId"];
+        require_once "../Classes/Database.php";
+        require_once "../Classes/UserManagement.php";
+        $userOps = new UserManagement();
+        try{
+            $userOps->banUserFromUpdating($userId);
+            echo 'User was banned successfully !';
+            exit;
+        }catch(Exception $error){
+            echo $error->getMessage();
+            exit;
+        }
+    }else if($action === "removeBanFromUpdating"){
+        $userId = $_POST["userId"];
+        require_once "../Classes/Database.php";
+        require_once "../Classes/UserManagement.php";
+        $userOps = new UserManagement();
+        try{
+            $userOps->removeBanFromUpdating($userId);
+            echo 'User\'s ban was removed successfully !';
+            exit;
+        }catch(Exception $error){
+            echo $error->getMessage();
+            exit;
+        }
+    }
 }else if($_SERVER["REQUEST_METHOD"] === "GET"){
     if($_GET["get"] === "getUsers"){
+      try {
         require_once "../Classes/User.php";
         require_once "../Classes/Database.php";
         require_once "../Classes/UserManagement.php";
@@ -145,5 +172,54 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
         header("Content-Type: application/json");
         echo json_encode($usersToSend);
         exit;
+      }catch (Exception $error){
+        echo 'Error' . $error->getMessage();
+      }
+    }else if($_GET["get"] === 'getUser'){
+        try {
+            $userId = $_GET["userId"];
+            require_once "../Classes/User.php";
+            require_once "../Classes/Database.php";
+            require_once "../Classes/UserManagement.php";
+            $userOps = new UserManagement();
+            $user = $userOps->getUser($userId);
+            $userRequested = new User(
+                $user["id"],
+                $user["username"], 
+                $user["email"],
+                $user["phone"], 
+                $user["userRole"],
+                $user["isForbiddenToUpdate"],
+                $user["created_at"],
+            );
+            header("Content-Type: application/json");
+            echo json_encode([
+                'id'=> $userRequested->getId(), 
+                'username'=> $userRequested->getUsername(),
+                'email'=> $userRequested->getEmail(),
+                'phone'=> $userRequested->getPhone(),
+                'userRole'=> $userRequested->getRole(),
+                'isForbiddenToUpdate'=> $userRequested->getIsForbiddenToUpdate(),
+                'created_at'=> $userRequested->getCreatedAt()
+            ]);
+            exit;
+        }catch(Exception $error){
+            echo 'Error' . $error->getMessage();
+        }
+    }else if($_GET["get"] === 'checkIfBanned'){
+        try{
+            $userId = $_GET["userId"];
+            require_once "../Classes/User.php";
+            require_once "../Classes/Database.php";
+            require_once "../Classes/UserManagement.php";
+            $userOps = new UserManagement();
+            $isBanned = $userOps->checkIfUserIsBanned($userId);
+            echo json_encode([
+                'isBanned' => $isBanned
+            ]);
+            exit;
+        }catch(Exception $error){
+            echo 'Error: ' . $error->getMessage();
+        }
     }
 }

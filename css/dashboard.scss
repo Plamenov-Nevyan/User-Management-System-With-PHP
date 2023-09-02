@@ -25,9 +25,22 @@ main {
             background-color: darkgoldenrod;
             .card-top {
                 text-align: center;
+                position: relative;
                 img {
                     max-width: 30%;
                     height: auto;
+                }
+                svg {
+                    max-width: 2em;
+                    max-height: 2em;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    cursor: pointer;
+                    transition: ease-in-out 200ms;
+                }
+                svg:hover {
+                    fill: azure;
                 }
             }
             .card-bottom {

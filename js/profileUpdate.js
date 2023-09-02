@@ -3,7 +3,9 @@ import { getSessionItem } from "./session.js"
 let optionBtns = document.querySelectorAll('.option-btn')
 let changeForms = document.querySelectorAll('.change-form')
 let suggestionHeading = document.querySelector('#suggestion-heading')
+let isUserBanned;
 
+window.addEventListener('load', () => checkIfUserIsBanned(getSessionItem('userId')))
 
 if(optionBtns !== null){
     Array.from(optionBtns).forEach(btn => {
@@ -73,7 +75,6 @@ if(optionBtns !== null){
 function sendData(action, inputs){
     let formData = new FormData()
     let userId = getSessionItem('userId')
-    console.log(userId)
     if(action === 'change-username-form'){
         formData.append("action", 'changeUsername')
         formData.append("userId", userId)
@@ -121,4 +122,17 @@ function visualizeErrors(errors){
             errorSpan.textContent = val
         }
     })
+}
+
+function checkIfUserIsBanned(userId){
+    fetch('includes/main.php?get=checkIfBanned&userId=' + `${userId}`)
+    .then(resp => resp.json())
+    .then(data => {
+        if(data.isBanned){
+              isUserBanned = true
+              alert('Your currently banned from updating your profile !')   
+              window.location.href = 'dashboard.html'
+          }  
+      })
+    .catch(err => alert('Oops.. something went wrong'))
 }

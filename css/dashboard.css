@@ -26,10 +26,23 @@ main .users-list-wrapper .card {
 }
 main .users-list-wrapper .card .card-top {
   text-align: center;
+  position: relative;
 }
 main .users-list-wrapper .card .card-top img {
   max-width: 30%;
   height: auto;
+}
+main .users-list-wrapper .card .card-top svg {
+  max-width: 2em;
+  max-height: 2em;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  transition: ease-in-out 200ms;
+}
+main .users-list-wrapper .card .card-top svg:hover {
+  fill: azure;
 }
 main .users-list-wrapper .card .card-bottom {
   display: flex;

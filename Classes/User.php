@@ -7,14 +7,16 @@ class User{
     private $phone;
     private $userRole;
     private $isForbiddenToUpdate;
+    private $created_at;
 
-    public function __construct($id, $username, $email, $phone, $userRole, $isForbiddenToUpdate){
+    public function __construct($id, $username, $email, $phone, $userRole, $isForbiddenToUpdate, $created_at=null){
         $this->id = $id;
         $this->username = $username;
         $this->email = $email;
         $this->phone = $phone;
         $this->userRole = $userRole;
         $this->isForbiddenToUpdate = $isForbiddenToUpdate;
+        $this->created_at = $created_at;
     }
 
     public function getId(){
@@ -56,5 +58,11 @@ class User{
     }
     public function setIsForbiddenToUpdate($isForbiddenToUpdate){
         $this->isForbiddenToUpdate = $isForbiddenToUpdate;
+    }
+    public function getCreatedAt(){
+        return $this->created_at;
+    }
+    public function setCreatedAt($created_at){
+        $this->created_at = $created_at;
     }
 }
