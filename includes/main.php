@@ -179,6 +179,19 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             echo $error->getMessage();
             exit;
         }
+    }else if($action === "deleteUserPermanently"){
+        $userId = $_POST["userId"];
+        require_once "../Classes/Database.php";
+        require_once "../Classes/UserManagement.php";
+        $userOps = new UserManagement();
+        try{
+            $userOps->deleteUserPermanently($userId);
+            echo 'User was successfully deleted !';
+            exit;
+        }catch(Exception $error){
+            echo $error->getMessage();
+            exit;
+        }
     }
 }else if($_SERVER["REQUEST_METHOD"] === "GET"){
     if($_GET["get"] === "getUsers"){

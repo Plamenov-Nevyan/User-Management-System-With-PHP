@@ -99,6 +99,7 @@ function generateActionsTemplate(userAccessed){
             let deleteBtn = document.createElement('button')
             deleteBtn.setAttribute('id', 'delete-btn')
             deleteBtn.textContent = 'Remove user permanently'
+            deleteBtn.addEventListener('click', () => deleteUserPermanently(userAccessed.id))
             buttonsDiv.append(deleteBtn)
         }
     }else if(userSignedUpRole === 'owner'){
@@ -139,6 +140,7 @@ function generateActionsTemplate(userAccessed){
         let deleteBtn = document.createElement('button')
         deleteBtn.setAttribute('id', 'delete-btn')
         deleteBtn.textContent = 'Remove user permanently'
+        deleteBtn.addEventListener('click', () => deleteUserPermanently(userAccessed.id))
         buttonsDiv.append(deleteBtn)
     }
     return buttonsDiv
@@ -221,6 +223,22 @@ function demoteToRegularUser(userId){
     .then(message => {
         alert(message)
         window.location.href = 'userOperations.html'
+    })
+    .catch(error => alert('Error: ' + error))
+}
+
+function deleteUserPermanently(userId){
+    let formData = new FormData()
+    formData.append('userId', userId)
+    formData.append('action', 'deleteUserPermanently')
+    fetch('includes/main.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(resp => resp.text())
+    .then(message => {
+        alert(message)
+        window.location.href = 'dashboard.html'
     })
     .catch(error => alert('Error: ' + error))
 }

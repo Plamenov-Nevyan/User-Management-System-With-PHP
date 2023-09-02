@@ -275,6 +275,22 @@ class UserManagement extends Database {
         $pdo = null;    
         $statement=null;
     }
+    public function deleteUserPermanently($userId){
+        try{
+           $this->buildAndExecDeleteQuery($userId);
+        }catch(Exception $error){
+            throw $error;
+        }
+    }
+    private function buildAndExecDeleteQuery($userId){
+        $pdo = $this->connect();
+        $deleteQuery = "DELETE FROM users WHERE id = :userId";
+        $deleteStatement = $pdo->prepare($deleteQuery);
+        $deleteStatement->bindParam('userId', $userId);
+        $deleteStatement->execute();
+        $pdo = null;    
+        $statement=null;
+    }
 
     public function checkIfUserIsBanned($userId){
         try{
