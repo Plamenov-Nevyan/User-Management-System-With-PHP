@@ -1,9 +1,11 @@
 .operations-wrapper {
-  width: 100vw;
+  max-width: 80vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
 }
 .operations-wrapper .action-menu {
   flex: 0 1 33%;
@@ -18,12 +20,32 @@
   flex-direction: column;
   gap: 1em;
 }
+.operations-wrapper .action-menu div button {
+  max-width: 50%;
+  width: 50%;
+  margin: 0 auto;
+  padding: 0.4em 0.5em;
+  cursor: pointer;
+  border: 2px solid orangered;
+  background: rgba(255, 69, 0, 0.5);
+  font-weight: bold;
+  color: cornsilk;
+  border-radius: 0.5em;
+  transition: ease-in-out 200ms;
+}
+.operations-wrapper .action-menu div button:hover {
+  border: 2px solid rgba(255, 69, 0, 0.5);
+  background-color: orangered;
+  color: azure;
+}
 .operations-wrapper .user-accessed-info {
-  flex: 0 1 33%;
+  flex: 0 1 40%;
   min-height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 2px -1px 25px 0px rgb(214, 232, 232);
+  background: lightcyan;
 }
 .operations-wrapper .user-accessed-info div {
   width: 100%;
@@ -33,4 +55,6 @@
   align-items: center;
   gap: 1em;
   flex-direction: column;
+  padding: 0.5em 1em;
+  border-radius: 0.7em;
 }/*# sourceMappingURL=userOperations.css.map */

@@ -1,9 +1,11 @@
 .operations-wrapper {
-    width: 100vw;
+    max-width: 80vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
     .action-menu {
         flex: 0 1 33%;
         min-height: 50vh;
@@ -15,15 +17,34 @@
             display: flex;
             flex-direction: column;
             gap: 1em;
-
+            button {
+                max-width: 50%;
+                width: 50%;
+                margin: 0 auto;
+                padding: 0.4em 0.5em;
+                cursor: pointer;
+                border: 2px solid orangered;
+                background: rgba(255, 69, 0, .5);
+                font-weight: bold;
+                color: cornsilk;
+                border-radius: .5em;
+                transition: ease-in-out 200ms;
+            }
+            button:hover {
+                border: 2px solid rgba(255, 69, 0, .5);
+                background-color: orangered;
+                color: azure;
+            }
         }
     }
     .user-accessed-info {
-        flex: 0 1 33%;
+        flex: 0 1 40%;
         min-height: 50vh;
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: 2px -1px 25px 0px rgba(214,232,232,1);
+        background: lightcyan;
         div {
             width: 100%;
             height: 100%;
@@ -32,6 +53,8 @@
             align-items: center;
             gap: 1em;
             flex-direction: column;
+            padding: 0.5em 1em;
+            border-radius: 0.7em;
         }
     }
 }
