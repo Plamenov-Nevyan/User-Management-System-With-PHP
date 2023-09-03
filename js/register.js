@@ -4,6 +4,10 @@ import { createPasswordSvg } from "./svgCreator.js"
 let registerForm = document.querySelector('#register-form')
 let registerInputs = Array.from(document.querySelectorAll('.register-input'))
 let showPasswordSvg = document.getElementById('show-password')
+window.addEventListener('load', () => {
+    let registerLink = document.querySelector('#register-link')
+    registerLink.classList.add('active')
+})
 let showPassword = false
 let formValues = {
     username: '',

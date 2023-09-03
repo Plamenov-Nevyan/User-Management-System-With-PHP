@@ -1,7 +1,8 @@
 import { getSessionItem } from "./session.js"
 import { viewUserInfoSvg, userOptionsSvg } from "./svgCreator.js"
-
-window.addEventListener('load', () => getUsers())
+window.addEventListener('load', () => {
+    getUsers()
+})
 
 function getUsers(){
     let wrapper = document.querySelector('#users-wrapper')

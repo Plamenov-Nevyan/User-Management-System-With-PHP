@@ -5,7 +5,11 @@ let changeForms = document.querySelectorAll('.change-form')
 let suggestionHeading = document.querySelector('#suggestion-heading')
 let isUserBanned;
 
-window.addEventListener('load', () => checkIfUserIsBanned(getSessionItem('userId')))
+window.addEventListener('load', () => {
+    checkIfUserIsBanned(getSessionItem('userId'))
+    let profOptionsLink = document.querySelector('#prof-options-link')
+    profOptionsLink.classList.add('active')
+})
 
 if(optionBtns !== null){
     Array.from(optionBtns).forEach(btn => {

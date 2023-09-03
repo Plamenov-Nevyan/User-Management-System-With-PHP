@@ -1,11 +1,11 @@
 import { getSessionItem, destroySession } from "./session.js";
 let linksList = document.getElementsByClassName('nav-list')[0];
 
-let isUserLoggedIn = getSessionItem('userId')
 
 window.addEventListener('load', () => constructNavigation())
 linksList.replaceChildren()
 function constructNavigation(){
+let isUserLoggedIn = getSessionItem('userId')
 let authLinks = createLinks(isUserLoggedIn)
 if(isUserLoggedIn){
     let homeLink = document.getElementById('home-link');
@@ -23,10 +23,11 @@ if(isUserLoggedIn){
             })
         }else if(link.id === 'prof-options-link'){
             link.addEventListener('click', () => {
+                window.location.href = 'profileOptions.html'
+                removeActiveClass(authLinks)
                 loginLink.classList.add('active')
-                window.location.href = 'prof-options.html'
             })
-        }else if(link.id === 'logout'){
+        }else if(link.id === 'logout-link'){
             link.addEventListener('click', () => {
                 destroySession()
                 window.location.href = 'index.html'
@@ -113,6 +114,10 @@ function createLinks(isUserLoggedIn){
             }else{
                 liItem.setAttribute('id', 'logout-link')
                 liItem.textContent = 'Logout'
+                // liItem.addEventListener('click', () => {
+                //     destroySession()
+                //     window.location.href = 'index.html'
+                // })
             }
             liItem.classList.add('nav-li-item')
             links.push(liItem)

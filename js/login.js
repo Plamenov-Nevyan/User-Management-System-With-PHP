@@ -3,6 +3,10 @@ import { createSession } from "./session.js"
 import { createPasswordSvg } from "./svgCreator.js"
 let loginForm = document.querySelector('#login-form')
 let loginInputs = Array.from(document.querySelectorAll('.login-input'))
+window.addEventListener('load', () => {
+    let loginLink = document.querySelector('#login-link')
+    loginLink.classList.add('active')
+})
 let showPasswordSvg = document.getElementById('show-password')
 let showPassword = false
 let formValues = {
